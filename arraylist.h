@@ -96,10 +96,12 @@ ARRAYLIST_TYPES
 	}
 
 ARRAYLIST_TYPES
-
 #undef X
 #undef CONTAINER
-#undef ARRAYLIST_TYPES
+
 
 #endif /* ARRAYLIST_IMPL */
+
+#undef ARRAYLIST_TYPES
+
 #endif /* ARRAYLIST_HEADER */
