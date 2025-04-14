@@ -9,7 +9,7 @@
 
 #include <assert.h>
 
-void main() {
+int main() {
 	int *numbers = arraylist_int_create(1);
 	numbers = arraylist_int_append(numbers, 0);
 	numbers = arraylist_int_append(numbers, 1);
@@ -54,4 +54,6 @@ void main() {
 	arraylist_string_wipe(strings);
 	assert(arraylist_string_size(strings) == 0);
 	arraylist_string_destroy(strings);
+
+	return 0;
 }
