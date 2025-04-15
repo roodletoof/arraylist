@@ -34,7 +34,8 @@
 	TYPE *arraylist_##NAME##_append(TYPE *this, TYPE value); \
 	size_t arraylist_##NAME##_size(TYPE *this); \
 	size_t arraylist_##NAME##_capacity(TYPE *this); \
-	void arraylist_##NAME##_wipe(TYPE *this);
+	void arraylist_##NAME##_wipe(TYPE *this); \
+	TYPE arraylist_##NAME##_pop(TYPE *this);
 
 	
 ARRAYLIST_TYPES
@@ -93,6 +94,11 @@ ARRAYLIST_TYPES
 	void arraylist_##NAME##_wipe(TYPE *this) { \
 		header_##NAME##_t *header = CONTAINER(this, header_##NAME##_t, values); \
 		header->size = 0; \
+	} \
+	TYPE arraylist_##NAME##_pop(TYPE *this) { \
+		header_##NAME##_t *header = CONTAINER(this, header_##NAME##_t, values); \
+		assert(header->size > 0); \
+		return header->values[--header->size]; \
 	}
 
 ARRAYLIST_TYPES

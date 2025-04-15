@@ -10,6 +10,7 @@
 #include <assert.h>
 
 int main() {
+
 	int *numbers = arraylist_int_create(1);
 	numbers = arraylist_int_append(numbers, 0);
 	numbers = arraylist_int_append(numbers, 1);
@@ -54,6 +55,22 @@ int main() {
 	arraylist_string_wipe(strings);
 	assert(arraylist_string_size(strings) == 0);
 	arraylist_string_destroy(strings);
+
+	// testing pop
+	numbers = arraylist_int_create(1);
+	numbers = arraylist_int_append(numbers, 0);
+	numbers = arraylist_int_append(numbers, 1);
+	numbers = arraylist_int_append(numbers, 2);
+	numbers = arraylist_int_append(numbers, 3);
+	numbers = arraylist_int_append(numbers, 4);
+
+	assert(arraylist_int_pop(numbers) == 4);
+	assert(arraylist_int_pop(numbers) == 3);
+	assert(arraylist_int_pop(numbers) == 2);
+	assert(arraylist_int_pop(numbers) == 1);
+	assert(arraylist_int_pop(numbers) == 0);
+
+	arraylist_int_destroy(numbers);
 
 	return 0;
 }
